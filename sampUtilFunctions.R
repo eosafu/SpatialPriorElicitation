@@ -82,20 +82,6 @@ PostSamplepower <- function(param,hparam){
   a            =hparam[[3]]
   b            =hparam[[4]]
   
-  #V0=list()
-  #resA0 <-  matrix(0,m0,m)
-  #for (i in 1:n0) {
-    
-  #  resA0[sample(1:m0,5),sample(1:m,5)]<-1 # randomly put on some entries
-  #  A00=list(resA0,A0)
-  #  A00=do.call(cbind, A00)
-  #  A00=as(A00,"sparseMatrix")
-  #  X0      <- as(t(as.matrix(cbind(x01,x02,x03,x04))),"sparseMatrix") #eval(parse(text=paste0("X0")))
-  #  X0      <- list(t(X0),A00)
-  #  V0[[i]] <- do.call(cbind,X0)
-  #}
-  
-  #V0=do.call(rbind,V0)
   
   invD <- omega0*t(V0)%*%V0+invSigmak
   D    =solve(invD)
@@ -233,27 +219,10 @@ commensurate <- function(param,hparam){
   
   invSigmak    =hparam[[1]]
   sigmatheta   =hparam[[2]]
-  a1           =hparam[[3]]
-  b1           =hparam[[4]]
-  a2           =hparam[[5]]
-  b2           =hparam[[6]]
-  
-  ### A00 = [--,A0]. Vary how the -- is structured in matrix A00
-  
-  #V0=list()
-  #resA0 <-  matrix(0,m0,m)
-  #for (i in 1:n0) {
-   
-  #  resA0[sample(1:m0,5),sample(1:m,5)]<-1 # randomly put on some entries
-  #  A00=list(resA0,A0)
-  #  A00=do.call(cbind, A00)
-  #  A00=as(A00,"sparseMatrix")
-  #  X0      <- as(t(as.matrix(cbind(x01,x02,x03,x04))),"sparseMatrix") #eval(parse(text=paste0("X0")))
-  #  X0      <- list(t(X0),A00)
-  #  V0[[i]] <- do.call(cbind,X0)
-  #}
-  
-  #V0=do.call(rbind,V0)
+  #a1           =hparam[[3]]
+  #b1           =hparam[[4]]
+  #a2           =hparam[[5]]
+  #b2           =hparam[[6]]
   
   
   Itheta <- diag(rep(1,q))
