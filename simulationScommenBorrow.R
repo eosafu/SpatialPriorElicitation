@@ -131,8 +131,8 @@ fieldcoord =  expand.grid(seq((min(WInd$window1)),(max(WInd$window1)),length=nfl
 fieldcoord = as.matrix(fieldcoord)
 
 
-nu= 1 # smoothness
-kappa= 5
+nu= 1    # Fixed smoothness
+kappa= 5 # Fixed range
 sigmatheta =10
 q1=nrow(fieldcoord0)
 p1=4
