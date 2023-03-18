@@ -140,20 +140,20 @@ q=nrow(fieldcoord)
 p=4
 qstar1=p1+q1
 qstar=p+q
-a=a1=2
-b=b1=1
+a=a1=2 # Shape for tau and tau1
+b=b1=1 # Scale for tau and tau1
 n0=10
 n=10
-b3=2
-b4=2
+b3=2   # Proposal parameter related to lambda beta (Global environ.)
+b4=2   # proposal parameter related to lambda theta (Global environ.)
+a11=2  # Shape for lambda beta
+b11=1  # Scale for lambda beta
+a22=2  # Shape for lambda theta
+b22=1  # Scale for lambda theta
+##
 tau1=0.5
 lambdabeta=1
 lambdatheta=1
-a11=2
-b11=1
-a22=2
-b22=1
-
 ####################
 ## Matrices A and A0
 psi = 0.2
