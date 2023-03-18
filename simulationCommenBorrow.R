@@ -129,8 +129,8 @@ fieldcoord =  expand.grid(seq((min(WInd$global)+0.1),(max(WInd$global)-0.1),leng
 fieldcoord = as.matrix(fieldcoord)
 q= nrow(fieldcoord)
 
-nu         =1 # smoothness
-kappa      =5
+nu         =1 # Fixed smoothness
+kappa      =5 # Fixed range
 sigmatheta =10
 p          =4
 qstar      =p+q
