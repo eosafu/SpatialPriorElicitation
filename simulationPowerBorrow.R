@@ -129,8 +129,8 @@ fieldcoord = as.matrix(fieldcoord)
 q= nrow(fieldcoord)
 
 # Assumed parameters in the estimation step
-nu         =1 # smoothness
-kappa      =5
+nu         =1 # Fixed smoothness
+kappa      =5 # Fixed range
 sigmatheta =1
 p          =4
 qstar      =p+q
