@@ -1,2 +1,2 @@
-# Spatial prior elicitation for spatial models using historical data 
+# Prior elicitation for spatial models using historical data
 This repository contains the R codes for the implementation of prior elicitation for Gaussian spatial process using historical data. Three prior elicitation models were developed: Spatial power-prior, Spatial commensurate prior, and Scalable spatial commensurate prior models. These priors were used in Bayesian spatial modeling of Transcranial Magnetic Stimulation (TMS) data.
