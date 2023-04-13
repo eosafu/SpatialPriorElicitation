@@ -429,11 +429,11 @@ ScalableComm <- function(param,hparam){
   invSigmak0 =hparam[[1]] # structured Cov. matrix for historical data
   Qtild0     =hparam[[2]] # To comupute cov. for the current data
   Qtild01    =hparam[[3]] # To compute cross-cov. of current and historical data
-  sigmatheta =hparam[[2]] # scale parameters for the covariance matrices
+  sigmatheta =hparam[[4]] # scale parameters for the covariance matrices
   a          =hparam[[5]] # Shape for current precision (tau) 
   b          =hparam[[6]] # rate parameter for (tau)
-  a1         =hparam[[5]] # shape for historical precision (tau1)
-  b1         =hparam[[6]] # rate for historical precision   (tau1)
+  a1         =hparam[[7]] # shape for historical precision (tau1)
+  b1         =hparam[[8]] # rate for historical precision   (tau1)
   
   
   
