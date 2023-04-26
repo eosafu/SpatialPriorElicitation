@@ -9,12 +9,13 @@ rm(list = ls())
 source("utilityfunctions.R")
 source("sampUtilFunctions.R")
 ######################
+# Limits of Spatial windows
 WInd <- list(
   global = c(0,1),
   window1= c(0.2,0.8),
   window2= c(0.4,0.9)
 )
-# Type of distance
+# Type of distance (Spatial Dist or Euclidean)
 LongLatA = T
 LongLatField = T
 ######################
@@ -24,8 +25,8 @@ m=30
 m0=50
 
 # Discount and Inflation factor
-discount= 2
-infl = 0.2
+discount= 2 # c1 in paper
+infl = 0.2  # c2 in paper
 # Sample location and obtain distance matrix
 
 loc <-  generateLoc(m,WInd$window1) 
@@ -58,7 +59,7 @@ BetaTrue=matrix(c(BetaTrue))#
 
 ### Covariates
 
-A=diag(rep(1,m)) # Identity matrix for spatial field
+A=diag(rep(1,m)) # Identity matrix for spatial field (implies Field=Spatial Effect)
 x1=rep(1,m)
 x2=rnorm(m,0,1)
 x3=rnorm(m,0,1)
@@ -70,7 +71,7 @@ X=t(as.matrix(cbind(x1,x2,x3,x4)))
 ### Predictor
 eta= t(X)%*%BetaTrue+A%*%Field
 
-### generate Response (See later)
+### generate Response (See later 172-197)
 #Y=t(rmvnorm(1,eta,(1/tau)* I))
 
 #### sample location of historical data
@@ -113,12 +114,13 @@ X0=t(as.matrix(cbind(x01,x02,x03,x04)))
 eta0= t(X0)%*%BetaTrue0+A0%*%Field0
 ### Response
 
+### generate Response (See later: 172-197)
 #Y0=t(rmvnorm(1,eta0,infl*(1/tau)* I))
 
 
 
 #####################################
-#Power Prior Borrowing estimation step
+#Power Prior Borrowing estimation step Begins
 #####################################
 
 #######regular Field locations ########
@@ -159,7 +161,7 @@ A1=as(A1,"sparseMatrix")
 
 #for(n in c(1,5,10,20,50)){ # For varying the sample sizes
   
-  numbIT=1                   # For varying the number of repeat to calculate the Out-sample msc and cpo
+  numbIT=1                  # For varying the number of repeat to calculate the Out-sample msc and cpo (set as 1 only for illustration)
   
   inCPO  <- vector("numeric",numbIT)
   outMSE <- vector("numeric",numbIT)
@@ -354,7 +356,7 @@ A1=as(A1,"sparseMatrix")
 #
 ##### Plot spatial effect prediction over the whole remain
 
-locnew <-  as.matrix(expand.grid(seq(0,1,length=50),seq(0,1,length=50)))#
+locnew <-  as.matrix(expand.grid(seq(0,1,length=50),seq(0,1,length=50)))# Similar to "window global"
 distmat=   spDists(locnew,locnew,longlat = T)
 Qtheta =cMatern(distmat,nu, kappa)
 
