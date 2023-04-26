@@ -9,6 +9,7 @@ rm(list = ls())
 source("utilityfunctions.R")
 source("sampUtilFunctions.R")
 ######################
+# Spatial windows
 WInd <- list(
   global = c(0,1),
   window1= c(0.2,0.8),
@@ -70,6 +71,8 @@ X=t(as.matrix(cbind(x1,x2,x3,x4)))
 
 ### Predictor
 eta= t(X)%*%BetaTrue+A%*%Field
+
+# See later 236:260
 ### Response
 #Y=t(rmvnorm(1,eta,(1/tau)* I))
 
@@ -109,8 +112,8 @@ X0=t(as.matrix(cbind(x01,x02,x03,x04)))
 
 ### Predictor
 eta0= t(X0)%*%BetaTrue0+A0%*%Field0
-### Response ()
 
+### Response (See later 236:260)
 #Y0=t(rmvnorm(1,eta0,infl*(1/tau)* I))
 
 ##############################################
